@@ -16,6 +16,13 @@ namespace MultiProjectStructure
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+
+            builder.Services.AddMemoryCache();
+            // builder.Services.AddResponseCaching(); //response caching
+
+
+
             builder.Services.AddBusinessLogic();
             builder.Services.AddDatabase(builder.Configuration.GetConnectionString("Database"));
 
@@ -31,6 +38,9 @@ namespace MultiProjectStructure
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
+
+            //app.UseResponseCaching();//response caching
 
 
             app.MapControllers();
